@@ -519,6 +519,46 @@ strong {
 }
 
 /* --------------------------------------------------------------------------
+   FAQ Section
+   -------------------------------------------------------------------------- */
+
+.faq {
+  margin-top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.faq-item {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition-fast);
+}
+
+.faq-item:hover {
+  border-color: var(--color-primary);
+}
+
+.faq-item h3 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-3);
+  color: var(--color-text);
+}
+
+.faq-item p {
+  color: var(--color-text-muted);
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.faq-item p a {
+  color: var(--color-primary-light);
+}
+
+/* --------------------------------------------------------------------------
    Steps Section
    -------------------------------------------------------------------------- */
 

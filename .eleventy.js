@@ -14,6 +14,12 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  // Add ISO date filter for sitemap
+  eleventyConfig.addFilter("date", (dateObj) => {
+    const d = new Date(dateObj);
+    return d.toISOString().split('T')[0];
+  });
+
   // Add year shortcode for copyright
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
@@ -25,7 +31,7 @@ module.exports = function(eleventyConfig) {
       layouts: "_includes/layouts",
       data: "_data"
     },
-    templateFormats: ["njk", "md", "html"],
+    templateFormats: ["njk", "md", "html", "txt"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk"
   };
