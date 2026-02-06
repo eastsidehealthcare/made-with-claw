@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ description or site.description }}">
+  
+  <title>{{ title }}{% if title %} | {% endif %}{{ site.name }}</title>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="/" class="nav-logo">{{ site.name }}</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    {% block content %}
+      {{ content | safe }}
+    {% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {% year %} {{ site.name }}. All rights reserved.</p>
+  </footer>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>
