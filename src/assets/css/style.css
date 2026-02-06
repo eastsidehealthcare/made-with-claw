@@ -196,6 +196,158 @@ a:hover {
 }
 
 /* ==========================================================================
+   Guide Pages
+   ========================================================================== */
+
+.guide {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.guide h1 {
+  margin-top: 0;
+  font-size: 2.25rem;
+}
+
+.guide .lead {
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-lg);
+}
+
+.guide h2 {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.guide h3 {
+  margin-top: var(--space-lg);
+}
+
+.guide pre {
+  background-color: #1f2937;
+  color: #e5e7eb;
+  padding: var(--space-md);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.guide code {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 0.9rem;
+}
+
+.guide blockquote {
+  background-color: var(--color-background-alt);
+  border-left: 4px solid var(--color-primary);
+  margin: var(--space-lg) 0;
+  padding: var(--space-md) var(--space-lg);
+  font-style: italic;
+}
+
+.guide table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-lg) 0;
+}
+
+.guide th,
+.guide td {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.guide th {
+  background-color: var(--color-background-alt);
+  font-weight: 600;
+}
+
+.guide .checklist {
+  list-style: none;
+  padding-left: 0;
+}
+
+.guide .checklist li {
+  padding: var(--space-xs) 0;
+}
+
+.next-step {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.next-step a {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Homepage
+   ========================================================================== */
+
+.overview,
+.steps,
+.cta {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.overview {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stack-overview {
+  background-color: var(--color-background-alt);
+  padding: var(--space-lg);
+  border-radius: 8px;
+  margin-top: var(--space-lg);
+}
+
+.stack-overview h3 {
+  margin-top: 0;
+}
+
+.steps h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.step {
+  padding: var(--space-lg);
+  background-color: var(--color-background-alt);
+  border-radius: 8px;
+  margin-bottom: var(--space-md);
+}
+
+.step h3 {
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+.step p {
+  margin-bottom: var(--space-sm);
+}
+
+.cta {
+  text-align: center;
+  background-color: var(--color-background-alt);
+  border-radius: 8px;
+  margin: var(--space-xl) auto;
+}
+
+.cta blockquote {
+  background-color: white;
+  border-left: 4px solid var(--color-primary);
+  padding: var(--space-md) var(--space-lg);
+  text-align: left;
+  font-style: italic;
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 

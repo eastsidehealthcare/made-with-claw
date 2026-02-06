@@ -1,12 +1,5 @@
 {
-  "name": "Site Name",
-  "description": "A brief description of your site",
-  "url": "https://example.com",
-  "author": "Your Name",
-  "email": "hello@example.com",
-  "social": {
-    "twitter": "",
-    "linkedin": "",
-    "github": ""
-  }
+  "name": "Made With Claw",
+  "description": "Build marketing websites with OpenClaw — a complete guide to 11ty, AWS Amplify, and Route 53.",
+  "url": "https://madewithclaw.com"
 }
