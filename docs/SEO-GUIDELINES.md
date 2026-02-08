@@ -70,8 +70,44 @@ Need an emergency dentist in Austin? Eastside Dental offers same-day appointment
 
 ## 4. Heading Structure
 
-- **H1:** One per page, contains primary keyword
-- **H2-H6:** Logical hierarchy, use for content structure
+### H1 Tags — The Main Title
+
+Every page needs exactly one unique H1 tag that serves as the main, descriptive title of the content.
+
+**Core Requirements:**
+- **One H1 per page** — Never use multiple H1 tags; it confuses search engines and users
+- **Unique across site** — Every important page (especially ranking pages) must have a distinct H1
+- **Match user intent** — The H1 should accurately reflect what users expect based on their search query
+
+**Keyword Optimization:**
+- Place your primary keyword early in the H1, but keep it natural-sounding
+- Avoid keyword stuffing — one primary keyword is sufficient
+- Complement the title tag with variations (H1 and `<title>` can be similar but don't have to be identical)
+
+**Length & Formatting:**
+- Keep it concise: 20-70 characters ideal, under 60-70 max
+- Make it punchy and clear for both mobile and desktop
+- On homepages, the H1 can highlight brand mission or main service
+
+**H1 Examples:**
+```html
+<!-- Good: Clear, keyword-early, accurate -->
+<h1>Emergency Dental Care in Austin — Same-Day Appointments</h1>
+
+<!-- Good: Service-focused, concise -->
+<h1>Ventilator Care Adult Family Homes</h1>
+
+<!-- Bad: Too long, keyword stuffed -->
+<h1>Best Emergency Dentist Austin Texas Dental Services Same Day Care</h1>
+
+<!-- Bad: Vague, no keyword -->
+<h1>Welcome to Our Website</h1>
+```
+
+### H2-H6 — Content Hierarchy
+
+- **H2:** Main sections of the page
+- **H3-H6:** Subsections within H2s
 - **Rules:**
   - Never skip levels (H1 → H3 is wrong)
   - H1 should be visually prominent
