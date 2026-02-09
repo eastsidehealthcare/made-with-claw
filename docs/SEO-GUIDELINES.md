@@ -37,12 +37,13 @@ Every page targets ONE primary keyword (or phrase). Define this before writing.
 ## 2. Page Titles
 
 - **Format:** `Primary Keyword - Secondary Keyword | Brand Name`
-- **Length:** 50-60 characters (Google truncates at ~60)
+- **Length:** **STRICTLY 50-60 characters** — no exceptions
 - **Rules:**
   - Every page has a unique title
   - Put important keywords first
   - Include brand name at the end
   - No keyword stuffing
+  - Count characters carefully — under 50 or over 60 is a fail
 
 **Examples:**
 - ✅ `Emergency Dentist in Austin - Same Day Appointments | Eastside Dental`
@@ -53,13 +54,14 @@ Every page targets ONE primary keyword (or phrase). Define this before writing.
 
 ## 3. Meta Descriptions
 
-- **Length:** 150-160 characters
+- **Length:** **STRICTLY 150-160 characters** — no exceptions
 - **Rules:**
   - Unique for every page
   - Include primary keyword naturally
   - Include a call-to-action
   - Accurately describe page content
   - Write for humans, not bots
+  - Count characters carefully — under 150 or over 160 is a fail
 
 **Example:**
 ```
@@ -220,6 +222,11 @@ Use hierarchical structure: `/state/city/service`
 
 Implement JSON-LD schema on every site. Minimum required:
 
+### ⚠️ Critical Schema Rules
+- **All URLs must be HTTPS** — never use `http://` in schema, always `https://`
+- **BreadcrumbList required on EVERY page** — no exceptions
+- Validate all schema at [Google Rich Results Test](https://search.google.com/test/rich-results)
+
 ### Organization (every site)
 ```json
 {
@@ -296,13 +303,11 @@ Implement JSON-LD schema on every site. Minimum required:
 
 | Page Type | Required Schema |
 |-----------|-----------------|
-| All Pages | Organization + FAQPage (5+ Q&As) |
+| All Pages | Organization + FAQPage (5+ Q&As) + **BreadcrumbList** |
 | Location Pages | + LocalBusiness |
 | Service Pages | + Service or MedicalProcedure |
 | Location + Service | + LocalBusiness + Service |
-| Blog/Articles | + Article + BreadcrumbList |
-
-**Validate:** Always test at [Google Rich Results Test](https://search.google.com/test/rich-results)
+| Blog/Articles | + Article |
 
 ---
 
@@ -440,15 +445,17 @@ Before any site goes live:
 | Element | Target | Key Rule |
 |---------|--------|----------|
 | Primary Keyword | 1 per page | In title, H1, URL, first 100 words |
-| Title | 50-60 chars | Unique, keyword-first |
-| Meta Description | 150-160 chars | CTA included |
+| Title | **50-60 chars STRICT** | Unique, keyword-first, no exceptions |
+| Meta Description | **150-160 chars STRICT** | CTA included, no exceptions |
 | URL | Descriptive | `/state/city/service` for locations |
 | H1 | One per page | Contains primary keyword |
 | Alt Text | < 125 chars | Descriptive, natural |
 | Content | 1000+ words | Structured, unique, useful |
 | External Links | 3+ per page | High-authority sites only |
 | FAQ | 5+ Q&As per page | With FAQPage schema |
+| Schema URLs | HTTPS only | Never use http:// in schema |
+| BreadcrumbList | Every page | Required, no exceptions |
 
 ---
 
-*Last updated: 2026-02-06*
+*Last updated: 2026-02-09*
