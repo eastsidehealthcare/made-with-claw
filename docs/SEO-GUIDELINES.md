@@ -220,6 +220,54 @@ Use hierarchical structure: `/state/city/service`
 
 Implement JSON-LD schema on every site. Minimum required:
 
+### ⚠️ Critical Schema Rules
+- **All URLs must be HTTPS** — never use `http://` in schema, always `https://`
+- **BreadcrumbList required on EVERY page** — no exceptions
+- **NO HTML in schema text** — JSON text values must be plain text only. HTML tags like `<a href="...">` break JSON parsing because the quotes terminate the string early
+- **Avoid special characters** — Dollar signs (`$`) can be stripped by template engines (Nunjucks). Use "USD" suffix instead (e.g., "8,000 USD" not "$8,000")
+- **Validate JSON** — Always test schema at [Google Rich Results Test](https://search.google.com/test/rich-results) before deploying
+
+### Common Schema Errors
+| Error | Cause | Fix |
+|-------|-------|-----|
+| `Parsing Error @type` | HTML in JSON text | Remove `<a>`, `<strong>`, etc. from text values |
+| `Invalid \escape` | Template engine stripped `$` | Use "X,000 USD" instead of "$X,000" |
+| `Unexpected token` | Unescaped quotes | Ensure all quotes inside strings are escaped |
+
+### BreadcrumbList Best Practices
+
+Breadcrumbs help users and search engines understand site hierarchy. Use **hierarchy-based breadcrumbs** (not path-based).
+
+**Rules:**
+- **Include full path** from homepage to current page
+- **Don't link the current page** — display it but don't make it clickable
+- **Use consistent separators** — recommend `>` or `›`
+- **Schema must match visible breadcrumbs** — if you show breadcrumbs on page, schema should match
+- **Position 1 is always Home** — subsequent positions follow hierarchy
+
+**Hierarchy Design:**
+```
+Home
+├── [Category] (e.g., Services, Locations, Blog)
+│   └── [Subcategory/Item] (e.g., Service type, City)
+│       └── [Detail page] (e.g., City + Service combo)
+```
+
+**Example Schema (3 levels):**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://example.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Locations", "item": "https://example.com/locations/"},
+    {"@type": "ListItem", "position": 3, "name": "Seattle", "item": "https://example.com/locations/seattle/"}
+  ]
+}
+```
+
+**Note:** The current page (last item) can include or omit the `item` URL — Google accepts both.
+
 ### Organization (every site)
 ```json
 {
@@ -296,13 +344,11 @@ Implement JSON-LD schema on every site. Minimum required:
 
 | Page Type | Required Schema |
 |-----------|-----------------|
-| All Pages | Organization + FAQPage (5+ Q&As) |
+| All Pages | Organization + FAQPage (5+ Q&As) + **BreadcrumbList** |
 | Location Pages | + LocalBusiness |
 | Service Pages | + Service or MedicalProcedure |
 | Location + Service | + LocalBusiness + Service |
-| Blog/Articles | + Article + BreadcrumbList |
-
-**Validate:** Always test at [Google Rich Results Test](https://search.google.com/test/rich-results)
+| Blog/Articles | + Article |
 
 ---
 
@@ -451,4 +497,4 @@ Before any site goes live:
 
 ---
 
-*Last updated: 2026-02-06*
+*Last updated: 2026-02-10*
