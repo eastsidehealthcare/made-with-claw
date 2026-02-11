@@ -173,6 +173,32 @@ Consider sharing:
 
 ---
 
+## Security: Encrypt Your Volumes
+
+Your OpenClaw instance stores API keys (Anthropic, etc.) on disk. Encrypting the EBS volume protects these secrets at rest.
+
+### Enable Encryption When Launching
+
+1. Start the EC2 launch wizard (from your AMI)
+2. Scroll to **Storage (Volumes)** section
+3. Click **Advanced** to expand volume details
+4. Find the **Encrypted** dropdown → select **Yes**
+5. Choose a KMS key (default `aws/ebs` is fine)
+6. Launch as normal
+
+All data at rest — including `~/.openclaw/` with your API keys — is now encrypted.
+
+### Alternative: AWS Secrets Manager
+
+For more advanced setups, store secrets in AWS Secrets Manager or SSM Parameter Store and fetch them at runtime:
+
+- **SSM Parameter Store** — Free tier, store as SecureString
+- **Secrets Manager** — ~$0.40/secret/month, automatic rotation
+
+Create a startup script that pulls secrets into environment variables before OpenClaw starts.
+
+---
+
 ## Quick Reference
 
 | Task | Command/Location |

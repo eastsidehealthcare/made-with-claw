@@ -180,6 +180,30 @@ openclaw gateway stop</code></pre>
 
   <hr>
 
+  <h2>🔒 Security: Encrypt Your Volumes</h2>
+  <p>Your OpenClaw instance stores API keys (Anthropic, etc.) on disk. Encrypting the EBS volume protects these secrets at rest.</p>
+
+  <h3>Enable Encryption When Launching</h3>
+  <ol>
+    <li>Start the EC2 launch wizard (from your AMI)</li>
+    <li>Scroll to <strong>Storage (Volumes)</strong> section</li>
+    <li>Click <strong>Advanced</strong> to expand volume details</li>
+    <li>Find the <strong>Encrypted</strong> dropdown → select <strong>Yes</strong></li>
+    <li>Choose a KMS key (default <code>aws/ebs</code> is fine)</li>
+    <li>Launch as normal</li>
+  </ol>
+  <p>All data at rest — including <code>~/.openclaw/</code> with your API keys — is now encrypted.</p>
+
+  <h3>Alternative: AWS Secrets Manager</h3>
+  <p>For more advanced setups, store secrets in AWS Secrets Manager or SSM Parameter Store and fetch them at runtime:</p>
+  <ul>
+    <li><strong>SSM Parameter Store</strong> — Free tier, store as SecureString</li>
+    <li><strong>Secrets Manager</strong> — ~$0.40/secret/month, automatic rotation</li>
+  </ul>
+  <p>Create a startup script that pulls secrets into environment variables before OpenClaw starts.</p>
+
+  <hr>
+
   <h2>Quick Reference</h2>
   <table>
     <thead>
