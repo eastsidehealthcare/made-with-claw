@@ -122,6 +122,86 @@ For healthcare audiences (often older users seeking information quickly):
 4. **No auto-playing animations** — respect user attention
 5. **Fast transitions** — 200-300ms max
 
+---
+
+## Mobile Touch Targets
+
+Touch interfaces require larger hit areas than desktop mouse interactions. Fingers are imprecise compared to cursor pointers.
+
+### Minimum Touch Target Sizes
+
+- **Minimum size:** 48x48px (Google's recommendation)
+- **Comfortable size:** 48-56px height, full available width
+- **Spacing between targets:** At least 8px to prevent mis-taps
+
+### Mobile Navigation Menus
+
+**Critical rule:** In mobile navigation menus, the clickable area should extend to:
+- **Full width** of the menu container (not just the text width)
+- **Full height** including the visual margin between menu items
+
+**Wrong approach:**
+```css
+/* ❌ Only the text is clickable */
+.nav-links a {
+  padding: 8px 0;
+}
+```
+
+**Correct approach:**
+```css
+/* ✅ Full touch target */
+.nav-links a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: var(--space-4) var(--space-6);
+  margin: 0 calc(var(--space-6) * -1);  /* Extend to container edges */
+  width: calc(100% + var(--space-6) * 2);
+}
+```
+
+### Implementation Pattern
+
+```css
+/* Mobile menu with proper touch targets */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 0;  /* Remove gap - let padding handle spacing */
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 16px 24px;
+    margin-left: -24px;
+    margin-right: -24px;
+    width: calc(100% + 48px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-links a:active {
+    background: var(--color-bg-secondary);  /* Visual feedback on tap */
+  }
+}
+```
+
+### Why This Matters
+
+1. **Accessibility:** Users with motor impairments need larger targets
+2. **Frustration reduction:** Mis-taps cause user frustration and abandonment
+3. **Healthcare audiences:** Often older users with reduced fine motor control
+4. **Speed:** Larger targets = faster navigation = better user experience
+
+### References
+
+- [Google Material Design: Touch Targets](https://m3.material.io/foundations/accessible-design/accessibility-basics#a9572d52-273e-457d-8293-bb57a5f4c6ce)
+- [Apple HIG: Touch Targets](https://developer.apple.com/design/human-interface-guidelines/accessibility#Touch-targets)
+- [WCAG 2.5.5: Target Size](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
+
 ### References
 
 - [Google web.dev: High-performance CSS animations](https://web.dev/articles/animations-guide)
