@@ -53,22 +53,20 @@ Then follow the [setup guide](https://madewithclaw.com/guide/clone-template/) to
 │   ├── guide/                # Guide pages
 │   └── index.njk             # Homepage
 ├── docs/
-│   └── SEO-GUIDELINES.md     # Complete SEO checklist
 ├── .eleventy.js              # 11ty configuration
 ├── amplify.yml               # AWS Amplify build settings
 └── package.json
 ```
 
-## SEO Requirements
+## Development Guidelines
 
-Every page should include:
-- **1000+ words** of unique content
-- **Primary keyword** in title, H1, URL, first 100 words
-- **3+ external links** to high-authority sites
-- **5+ FAQ Q&As** with schema markup
-- **Embedded Google Map** in footer
+Refer to the master instructions repository for all development guidelines:
 
-See [docs/SEO-GUIDELINES.md](docs/SEO-GUIDELINES.md) for the complete checklist.
+- [SEO Guidelines](https://github.com/eastsidehealthcare/master-instructions/blob/main/docs/SEO-GUIDELINES.md)
+- [UI Guidelines](https://github.com/eastsidehealthcare/master-instructions/blob/main/docs/UI-GUIDELINES.md)  
+- [Workflow Guidelines](https://github.com/eastsidehealthcare/master-instructions/blob/main/docs/MASTER-WORKFLOW.md)
+
+These guidelines apply to all sites built with this template.
 
 ## Contributing
 
